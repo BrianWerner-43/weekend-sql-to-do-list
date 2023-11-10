@@ -12,6 +12,26 @@
   <header>
     <h1>SQL TO-DO List</h1>
   </header>
+  <!-- Added a section that has 1 input and a submit button -->
+  <section>
+    <h2>Your Daily Tasks 🧹</h2>
+    <input data-testid="toDoTextInput" id="todoItem" type="text" placeholder="To-Do">
+    <button data-testid="submitButton" id="submit-btn" onclick="submitTask()">submit task</button>
+  </section>
+  <section>
+    <table>
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Was This Complete?</th>
+          <th>Delete Task</th>
+        </tr>
+      </thead>
+      <tbody data-testid="toDoItem" id="taskList">   
+      </tbody>
+    </table>
+  </section>
+ 
 
 </body>
 </html>
