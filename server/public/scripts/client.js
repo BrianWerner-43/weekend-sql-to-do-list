@@ -31,8 +31,7 @@ function submitTask(event) {
       url: '/todos',
       data:
       {
-        taskToDo: taskToDo
-        
+        taskToDo: taskToDo    
       }
     }).then(function(response) {
       console.log('POST /todos is getting a response:');
@@ -48,7 +47,7 @@ function renderTask(tasks) {
   taskList.innerHTML = '';
   console.log('In renderTask');
   
-
+  // looping through task and append a complete and delete buttons
   for(let task of tasks) {
     taskList.innerHTML +=
     `<tr data-todoid = "${task.id}">
@@ -64,7 +63,7 @@ function renderTask(tasks) {
     `
    
   }
-}
+}; // End of renderTask
 
 
 // Create a update function that is connected to a PUT route to update the database
@@ -80,7 +79,7 @@ function updateTask(event) {
   }).catch((error) => {
     console.log('error with PUT:', error)
   })
-};
+};// End of updateTask
 
 
 // Delete function that deletes the task from the DOM and database
