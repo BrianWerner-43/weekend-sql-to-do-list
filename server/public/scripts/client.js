@@ -23,17 +23,15 @@ function getTask() {
 function submitTask(event) {
     event.preventDefault();
     let taskToDo = document.getElementById('todoItem').value;
-    // let completeTask = document.getElementById('isComplete').value;
     document.getElementById('todoItem').value = '';
-    // document.getElementById('isComplete').value = '';
+    
 
     axios({
       method: 'POST',
       url: '/todos',
       data:
       {
-        taskToDo: taskToDo,
-        // completeTask: completeTask
+        taskToDo: taskToDo
         
       }
     }).then(function(response) {
@@ -52,16 +50,14 @@ function renderTask(tasks) {
   
 
   for(let task of tasks) {
-    console.log(task.text);
     taskList.innerHTML +=
     `<tr data-todoid = "${task.id}">
-        <td data-testid="toDoItem" class= ${task.isComplete ? "completed" : "not-complete"}>
-
+        <td data-testid="toDoItem" class= ${task.isComplete ? "completed" : "not-complete"} >
         <button data-testid="completeButton"
         class="completed" onclick="updateTask(event)">Complete</button>${task.text}
         <button data-testid="deleteButton" onclick="deleteTask(event)">Delete</button></td>
-        <td>${task.isComplete}</td>
-      </tr>
+     <td>${task.isComplete}</td>
+     </tr>
         
       
     `
@@ -75,13 +71,13 @@ function renderTask(tasks) {
 
 // Create a update function that is connected to a PUT route to update the database
 function updateTask(event) {
-  let taskId = event.target.closet("tr").getAttribute("data-taskid");
-  console.log('In updateTask:', taskId);
+  let todoId = event.target.closet("tr").getAttribute("data-todoid");
+  console.log('In updateTask:', todoId);
   axios({
     method: 'PUT',
-    url: `todos/${taskId}`
+    url: `todos/${todoId}`
   }).then((response) => {
-    console.log('Task by id', response);
+    console.log('Task by id');
     getTask();
   }).catch((error) => {
     console.log('error with PUT:', error)
@@ -90,5 +86,19 @@ function updateTask(event) {
 
 
 // Delete function that deletes the task from the DOM and database
+function deleteTask(event) {
+  let clickedButton = event.target;
+  let theTableRow = clickedButton.closet('tr');
+  let todoId = theTableRow.getAttribute('data-todoid');
 
+  axios({
+    method: 'DELETE',
+    url: `/todos/${todoId}`
+  }).then((response) => {
+    getTask();
+  }).catch((error) => {
+    console.log('DELETE /todos/:id fail:', error);
+  })
+
+};// End of deleteTask
 
