@@ -1,7 +1,44 @@
 .completed {
-    background-color: green;
+    background-color: rgb(21, 235, 21);
+    width: 40%;
+   
 }
 
-/* .not-complete { */
-    /* background-color: rgb(212, 208, 208);
-} */
+.not-complete {
+    background-color: gray;
+}
+
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h2 {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+section {
+    border: 2px solid #3fc8edda;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    color: rgb(75, 7, 138);
+    text-align: left;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  thead tr {
+  background-color: rgb(12, 132, 172);
+  }
+  
+  tr:nth-child(even) {
+    background-color: #E8DFC4;
+  }

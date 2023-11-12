@@ -62,5 +62,25 @@ router.put('/:id', (req, res) => {
 
 // Delete route
 
+router.delete('/:id', (req, res) => {
+    let idOfTaskToDelete = req.params.id;
+    const sqlText = 
+    `DELETE FROM "todos"
+       WHERE "id" = ($1);
+    `
+
+    const sqlValues = [idOfTaskToDelete]
+    console.log(sqlValues);
+    pool.query(sqlText, sqlValues)
+    .then((dbResult) => {
+        console.log('DELETE /todos :id deleted:')
+        res.sendStatus(200);
+    })
+    .catch((dbError) => {
+        console.log('DELETE /todos/:id failed:', dbError);
+        res.sendStatus(500);
+    })
+})
+
 
 module.exports = router;

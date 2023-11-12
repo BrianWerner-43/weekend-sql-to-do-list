@@ -55,23 +55,21 @@ function renderTask(tasks) {
         <td data-testid="toDoItem" class= ${task.isComplete ? "completed" : "not-complete"} >
         <button data-testid="completeButton"
         class="completed" onclick="updateTask(event)">Complete</button>${task.text}
-        <button data-testid="deleteButton" onclick="deleteTask(event)">Delete</button></td>
+
+        <button data-testid="deleteButton" onclick="deleteTask(event)"><span>Delete</span></button></td>
      <td>${task.isComplete}</td>
      </tr>
         
       
     `
-    // if(task.isComplete) {
-    //   document.getElementById(task.id).classList.add("completed");
-    // }
-    // console.log('Did class change?');
+   
   }
 }
 
 
 // Create a update function that is connected to a PUT route to update the database
 function updateTask(event) {
-  let todoId = event.target.closet("tr").getAttribute("data-todoid");
+  let todoId = event.target.closest("tr").getAttribute("data-todoid");
   console.log('In updateTask:', todoId);
   axios({
     method: 'PUT',
@@ -87,9 +85,9 @@ function updateTask(event) {
 
 // Delete function that deletes the task from the DOM and database
 function deleteTask(event) {
-  let clickedButton = event.target;
-  let theTableRow = clickedButton.closet('tr');
-  let todoId = theTableRow.getAttribute('data-todoid');
+  let todoId = event.target.closest("tr").getAttribute("data-todoid");
+  console.log('In deleteTask:', todoId);
+  
 
   axios({
     method: 'DELETE',
