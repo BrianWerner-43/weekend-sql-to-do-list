@@ -16,6 +16,7 @@
   <section>
     <h2>Your Daily Tasks 🧹</h2>
     <input data-testid="toDoTextInput" id="todoItem" type="text" placeholder="To-Do">
+    <!-- <input data-testid="toDoTextInput" id="isComplete" type="text" placeholder="Complete"> -->
     <button data-testid="submitButton" id="submit-btn" onclick="submitTask(event)">submit task</button>
   </section>
   <section>
@@ -27,7 +28,7 @@
           <th>Delete Task</th>
         </tr>
       </thead>
-      <tbody data-testid="toDoItem" id="taskList">   
+      <tbody id="taskList">   
       </tbody>
     </table>
   </section>
