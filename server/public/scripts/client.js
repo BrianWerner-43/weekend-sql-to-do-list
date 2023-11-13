@@ -54,8 +54,9 @@ function renderTask(tasks) {
         <td data-testid="toDoItem" class= ${task.isComplete ? "completed" : "not-complete"} >
         <button data-testid="completeButton"
         class="completed" onclick="updateTask(event)">Complete</button>${task.text}
-
-        <button data-testid="deleteButton" onclick="deleteTask(event)"><span>Delete</span></button></td>
+       
+        <button data-testid="deleteButton" onclick="deleteTask(event)" type="button" class="btn btn-danger"><span>Delete</span></button></td>
+    
      <td>${task.isComplete}</td>
      </tr>
         
