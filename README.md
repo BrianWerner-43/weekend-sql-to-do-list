@@ -13,7 +13,7 @@ To see the fully functional site, please visit: [DEPLOYED VERSION OF APP](www.he
 
 ## Screen Shot
 
-
+![Alt text](<2023-11-18 11.33.49.gif>)
 
 ### Prerequisites
 
