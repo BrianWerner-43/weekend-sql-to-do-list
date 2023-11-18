@@ -39,12 +39,12 @@ How does someone use this application? Tell a user story here.
 
 
 ## Built With
-- [Node.js]
-- [Postgres]
-- [javascript]
-- [Axios]
-- [Bootstrap]
-- [CSS]
+- Node.js
+- Postgres
+- javascript
+- Axios
+- Bootstrap
+- CSS
 
 
 
